@@ -29,6 +29,20 @@ var Exercise = sequelize.define("exercise", {
   timestamps: true
 });
 
+// exercise is an element of a workout--
+// exercise belongs to many workout
+Exercise.associate = function (models){
+
+  exercise.belongToMany(workouts);
+};
+
+workout.create({
+  // will sequelize create the appropriate id/key here?
+  title: workout.title,
+  // may need to use/link with Jquery to pull user input ie title of workout from html form
+  exercise: Exercise,
+  // adds (multiple) exercises (with attributes) to the table
+})
 // Syncs with DB
 // MAKE SURE TO SYNC WITH THE PROPER DB
 fitlife.sync();

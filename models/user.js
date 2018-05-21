@@ -20,6 +20,12 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
           len: [1]
       }
-    });
+    },
+  });
+
+  User.associate = function (models){
+    // associate User with workouts
+    User.hasMany(models.workout)
+  };
     return Post;
   };
